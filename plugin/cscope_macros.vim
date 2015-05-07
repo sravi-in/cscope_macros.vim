@@ -38,12 +38,12 @@ if has("cscope")
     set csto=0
 
     " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out  
-    " else add the database pointed to by environment variable 
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-	endif
+"    if filereadable("cscope.out")
+"        cs add cscope.out
+"    " else add the database pointed to by environment variable
+"    elseif $CSCOPE_DB != ""
+"        cs add $CSCOPE_DB
+"	endif
 
     " show msg when any other cscope db added
 	set cscopeverbose  
@@ -92,6 +92,17 @@ if has("cscope")
     nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
     nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>	
     nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+
+    " Custom mappings
+    nmap cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap ct :cs find t <C-R>=expand("<cword>")<CR><CR>
+    "nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap ef :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
+    nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+    nmap t  <C-t>
 
 
     " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
